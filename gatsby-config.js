@@ -5,6 +5,7 @@ module.exports = {
     author: `@pengwinlinux`,
   },
   plugins: [
+    `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -18,6 +19,13 @@ module.exports = {
       options: {
         name: "blog-posts",
         path: `${__dirname}/src/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "json-data",
+        path: `${__dirname}/src/json-data`,
       },
     },
     `gatsby-transformer-sharp`,

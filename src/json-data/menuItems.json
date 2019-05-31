@@ -1,0 +1,7 @@
+[
+  { "title": "Pengwin", "link": "/" },
+  { "title": "Pengwin Enterprise", "link": "/pengwin-enterprise" },
+  { "title": "Fedora Remix for WSL", "link": "/fedora-remix-for-wsl" },
+  { "title": "What is WSL?", "link": "/what-is-wsl" },
+  { "title": "Blog", "link": "blog" }
+]
