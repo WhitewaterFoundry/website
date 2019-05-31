@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainMenu /> Matches the previous accepted snapshot. 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdVaJa eQVJGE"
+  >
+    <div
+      style="width: 70px;"
+    >
+      <div>
+        Fake Icon
+      </div>
+    </div>
+    <div
+      class="sc-bwzfXH jpYALe"
+    >
+      <a
+        class="sc-htpNat uhplL"
+        href="/test1"
+      >
+        Test 1
+      </a>
+      <a
+        class="sc-htpNat uhplL"
+        href="/test2"
+      >
+        Test 2
+      </a>
+      <a
+        class="sc-htpNat uhplL"
+        href="/test3"
+      >
+        Test 3
+      </a>
+      <a
+        class="sc-htpNat uhplL"
+        href="/test4"
+      >
+        Test 4
+      </a>
+      <a
+        class="sc-htpNat uhplL"
+        href="/test5"
+      >
+        Test 5
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

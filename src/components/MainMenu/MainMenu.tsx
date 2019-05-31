@@ -1,6 +1,7 @@
-import React from "react"
+import * as React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import MenuItem from "./MenuItem"
 
 const MainMenuWrapper = styled.div`
   width: 100%;
@@ -24,17 +25,22 @@ const MainMenuLink = styled(Link)`
   margin-left: 6px;
   margin-right: 6px;
 `
-
-const MainMenu = () => {
+interface Props {
+  menuItems: Array<MenuItem>
+  renderIcon: Function
+}
+const MainMenu: React.FC<Props> = ({ menuItems, renderIcon }) => {
   return (
     <MainMenuWrapper>
-      <div style={{ width: "70px" }}>{/* Icon Placeholder */}</div>
+      <div style={{ width: "70px" }}>{renderIcon()}</div>
       <MenuLinksWrapper>
-        <MainMenuLink to="/">Pengwin</MainMenuLink>
-        <MainMenuLink to="/pengwin-enterprise">Pengwin Enterprise</MainMenuLink>
-        <MainMenuLink to="/fedora-remix-for-wsl">Fedora Remix for WSL</MainMenuLink>
-        <MainMenuLink to="/what-is-wsl">What is WSL?</MainMenuLink>
-        <MainMenuLink to="/blog">Blog</MainMenuLink>
+        {menuItems.map((item, i) => {
+          return (
+            <MainMenuLink to={item.link} key={`main-menu-item${i}`}>
+              {item.title}
+            </MainMenuLink>
+          )
+        })}
       </MenuLinksWrapper>
     </MainMenuWrapper>
   )
