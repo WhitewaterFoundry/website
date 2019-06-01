@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MainMenu /> Matches the previous accepted snapshot. 1`] = `
+exports[`<MainMenu /> Matches the previous accepted snapshot with mobile=false. 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdVaJa eQVJGE"
+    class="sc-bwzfXH JrkCz"
   >
     <div
       style="width: 70px;"
@@ -13,34 +13,132 @@ exports[`<MainMenu /> Matches the previous accepted snapshot. 1`] = `
       </div>
     </div>
     <div
-      class="sc-bwzfXH jpYALe"
+      class="sc-ifAKCX ePtLCd"
     >
+       
       <a
-        class="sc-htpNat uhplL"
+        class="sc-bdVaJa fthXlT"
         href="/test1"
       >
         Test 1
       </a>
       <a
-        class="sc-htpNat uhplL"
+        class="sc-bdVaJa fthXlT"
         href="/test2"
       >
         Test 2
       </a>
       <a
-        class="sc-htpNat uhplL"
+        class="sc-bdVaJa fthXlT"
         href="/test3"
       >
         Test 3
       </a>
       <a
-        class="sc-htpNat uhplL"
+        class="sc-bdVaJa fthXlT"
         href="/test4"
       >
         Test 4
       </a>
       <a
-        class="sc-htpNat uhplL"
+        class="sc-bdVaJa fthXlT"
+        href="/test5"
+      >
+        Test 5
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<MainMenu /> Matches the previous accepted snapshot with mobile=true. 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bwzfXH JrkCz"
+  >
+    <div
+      style="width: 70px;"
+    >
+      <div>
+        Fake Icon
+      </div>
+    </div>
+    <div
+      style="width: 100%; display: flex; flex-direction: row-reverse;"
+    >
+      <button
+        class="sc-htpNat iTUDjS"
+      >
+        <div
+          class="sc-bxivhb jpKkbv"
+        >
+          <svg
+            height="40"
+            id="icon"
+            width="40"
+          >
+            <rect
+              class="line "
+              fill="#363636"
+              height="2"
+              rx="1"
+              width="34"
+              x="4"
+              y="10"
+            />
+            <rect
+              class="line "
+              fill="#363636"
+              height="2"
+              rx="1"
+              width="28"
+              x="4"
+              y="21"
+            />
+            <rect
+              class="line "
+              fill="#363636"
+              height="2"
+              rx="1"
+              width="34"
+              x="4"
+              y="34"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+    <div
+      class="sc-EHOje hGQbOQ"
+      height="0px"
+      opacity="0"
+    >
+      <a
+        class="sc-bdVaJa fthXlT"
+        href="/test1"
+      >
+        Test 1
+      </a>
+      <a
+        class="sc-bdVaJa fthXlT"
+        href="/test2"
+      >
+        Test 2
+      </a>
+      <a
+        class="sc-bdVaJa fthXlT"
+        href="/test3"
+      >
+        Test 3
+      </a>
+      <a
+        class="sc-bdVaJa fthXlT"
+        href="/test4"
+      >
+        Test 4
+      </a>
+      <a
+        class="sc-bdVaJa fthXlT"
         href="/test5"
       >
         Test 5

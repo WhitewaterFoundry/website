@@ -5,7 +5,8 @@ const MenuWrapper = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: 70px auto;
-  padding-right: 24px;
+  padding: 8px;
+  background-color: #ffffff;
 `
 
 export default MenuWrapper
