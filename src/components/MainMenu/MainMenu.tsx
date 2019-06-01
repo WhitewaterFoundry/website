@@ -2,14 +2,7 @@ import * as React from "react"
 import styled from "styled-components"
 import MenuItem from "./MenuItem"
 import MenuLink from "./MenuLink"
-
-const MainMenuWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 70px auto;
-  padding-right: 24px;
-`
+import MenuWrapper from "./MenuWrapper"
 
 const MenuLinksWrapper = styled.div`
   display: flex;
@@ -25,7 +18,7 @@ interface Props {
 }
 const MainMenu: React.FC<Props> = ({ menuItems, renderIcon }) => {
   return (
-    <MainMenuWrapper>
+    <MenuWrapper>
       <div style={{ width: "70px" }}>{renderIcon()}</div>
       <MenuLinksWrapper>
         {menuItems.map((item: MenuItem) => {
@@ -36,7 +29,7 @@ const MainMenu: React.FC<Props> = ({ menuItems, renderIcon }) => {
           )
         })}
       </MenuLinksWrapper>
-    </MainMenuWrapper>
+    </MenuWrapper>
   )
 }
 
