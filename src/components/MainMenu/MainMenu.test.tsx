@@ -6,11 +6,11 @@ import MenuItem from "./MenuItem"
 import "react-testing-library/cleanup-after-each"
 
 const mockMenuItems: Array<MenuItem> = [
-  { title: "Test 1", link: "/test1" },
-  { title: "Test 2", link: "/test2" },
-  { title: "Test 3", link: "/test3" },
-  { title: "Test 4", link: "/test4" },
-  { title: "Test 5", link: "/test5" },
+  { title: "Test 1", link: "/test1", id: "test1" },
+  { title: "Test 2", link: "/test2", id: "test1" },
+  { title: "Test 3", link: "/test3", id: "test1" },
+  { title: "Test 4", link: "/test4", id: "test1" },
+  { title: "Test 5", link: "/test5", id: "test1" },
 ]
 
 const renderMainMenu: Function = () => {
