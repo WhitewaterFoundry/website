@@ -8,7 +8,7 @@ const CTABanner: React.FC<{}> = () => {
   const mediaContext = useContext<{ media: string | null }>(MediaContext)
   const imageFluid = useBannerImage()
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", maxHeight: "60vh" }}>
       <div
         className="image-container"
         style={{ width: "100%", maxHeight: "60vh", overflow: "hidden" }}
