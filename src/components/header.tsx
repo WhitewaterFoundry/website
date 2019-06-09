@@ -1,5 +1,7 @@
 import React from "react"
+import Img from "gatsby-image"
 import MainMenu from "./MainMenu/MainMenu"
+import { useWebsiteLogo } from "../components/MainMenu/useWebsiteLogo"
 import MenuItem from "./MainMenu/MenuItem"
 
 const Header: React.FC<{ menuItems: MenuItem[]; mobile: boolean }> = ({ menuItems, mobile }) => (
@@ -9,7 +11,11 @@ const Header: React.FC<{ menuItems: MenuItem[]; mobile: boolean }> = ({ menuItem
       height: "70px",
     }}
   >
-    <MainMenu menuItems={menuItems} renderIcon={() => <p>icon</p>} mobile={mobile} />
+    <MainMenu
+      menuItems={menuItems}
+      renderIcon={() => <Img fluid={useWebsiteLogo()} />}
+      mobile={mobile}
+    />
   </header>
 )
 
