@@ -26,9 +26,10 @@ const DropDown = styled.div<{ height: string; opacity: number }>`
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #fdfcff;
   opacity: ${({ opacity }) => opacity};
   transition: height 200ms ease-out, opacity 300ms ease;
+  box-shadow: 0px 25px 28px -11px rgba(0, 0, 0, 0.4);
   a {
     font-size: 1.5em;
   }
@@ -63,7 +64,7 @@ const MainMenu: React.FC<Props> = ({ menuItems, renderIcon, mobile }) => {
                 menuVisible={menuDropped}
               />
             </div>
-            <DropDown opacity={menuDropped ? 1 : 0} height={menuDropped ? "70vh" : "0px"}>
+            <DropDown opacity={menuDropped ? 1 : 0} height={menuDropped ? "85vh" : "0px"}>
               {renderLinks()}
             </DropDown>
           </>
