@@ -19,7 +19,6 @@ export const useRunsIcons = () => {
   `)
   return data.allFile.edges.map(
     (edge: { node: { id: string; childImageSharp: { fluid: { srcSet: string } } } }) => {
-      console.log(edge.node)
       return {
         id: edge.node.id,
         srcSet: edge.node.childImageSharp.fluid.srcSet,
