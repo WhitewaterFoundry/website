@@ -3,9 +3,16 @@ import { useStaticQuery, graphql } from "gatsby"
 export const useBannerImage = () => {
   const data = useStaticQuery(graphql`
     {
-      placeholderImage: file(relativePath: { regex: "/Super-Art.png/" }) {
+      mobile: file(relativePath: { regex: "/box-art_cropped.jpg/" }) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 3840, maxHeight: 1500) {
+          fluid(quality: 80, maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      desktop: file(relativePath: { regex: "/Super-Art.png/" }) {
+        childImageSharp {
+          fluid(quality: 60, maxWidth: 3840, maxHeight: 1500) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -13,5 +20,5 @@ export const useBannerImage = () => {
     }
   `)
 
-  return data.placeholderImage.childImageSharp.fluid
+  return { mobile: data.mobile.childImageSharp.fluid, desktop: data.desktop.childImageSharp.fluid }
 }

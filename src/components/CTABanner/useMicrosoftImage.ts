@@ -7,7 +7,7 @@ export const useMicrosoftImage = () => {
         relativePath: { regex: "/English_get-it-from-MS_InvariantCulture_Default.png/" }
       ) {
         childImageSharp {
-          fluid(quality: 100) {
+          fluid(quality: 50) {
             ...GatsbyImageSharpFluid
           }
         }
