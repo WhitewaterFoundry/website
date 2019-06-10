@@ -5,11 +5,14 @@ import { MediaContext } from "../MediaContext"
 
 const IconsWrapper = styled.div<{ mobile: boolean }>`
   width: ${({ mobile }) => (mobile ? "80vw" : "44vw")};
+  padding-top: 1em;
   min-width: 300px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  min-height: 48vh;
 `
 
 const IconWrapper = styled.div`
