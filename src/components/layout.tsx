@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useMediaQueries } from "../hooks/useMediaQueries"
 import { MediaContext } from "./MediaContext"
 import Header from "./header"
+import Footer from "./footer"
 import { useMenuItems } from "./MainMenu/useMenuItems"
 import "./layout.css"
 
@@ -44,7 +45,9 @@ const Layout: React.FC = ({ children }) => {
             {children}
           </MediaContext.Provider>
         </main>
-        <footer>© {new Date().getFullYear()}, Whitewater Foundry</footer>
+        <footer>
+          <Footer mobile={mobile} />
+        </footer>
         <HeaderWrapper mobile={mobile}>
           <Header menuItems={menuItems} mobile={mobile} />
         </HeaderWrapper>
