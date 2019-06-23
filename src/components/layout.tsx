@@ -6,6 +6,7 @@ import Header from "./header"
 import Footer from "./footer"
 import { useMenuItems } from "./MainMenu/useMenuItems"
 import "./layout.css"
+import MediaWrapper from "./Common/MediaWrapper"
 
 const HeaderWrapper = styled.div<{ mobile: boolean }>`
   ${({ mobile }) => (mobile ? "position: fixed; top: 0;" : "position: absolute; top: 0;")}
@@ -33,25 +34,25 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
-      <div
-        style={{
-          margin: `0 auto`,
-          padding: `0`,
-          paddingTop: "72px",
-        }}
-      >
-        <main>
-          <MediaContext.Provider value={{ media: media, portrait: portrait === "portrait" }}>
-            {children}
-          </MediaContext.Provider>
-        </main>
-        <footer>
-          <Footer mobile={mobile} />
-        </footer>
-        <HeaderWrapper mobile={mobile}>
-          <Header menuItems={menuItems} mobile={mobile} />
-        </HeaderWrapper>
-      </div>
+      <MediaContext.Provider value={{ media: media, portrait: portrait === "portrait" }}>
+        <div
+          style={{
+            margin: `0 auto`,
+            padding: `0`,
+            paddingTop: "72px",
+          }}
+        >
+          <main>
+            <MediaWrapper>{children}</MediaWrapper>
+          </main>
+          <footer>
+            <Footer mobile={mobile} />
+          </footer>
+          <HeaderWrapper mobile={mobile}>
+            <Header menuItems={menuItems} mobile={mobile} />
+          </HeaderWrapper>
+        </div>
+      </MediaContext.Provider>
     </>
   )
 }
