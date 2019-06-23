@@ -46,7 +46,7 @@ const MainMenu: React.FC<Props> = ({ menuItems, renderIcon, mobile }) => {
   const renderLinks = () =>
     menuItems.map((item: MenuItem) => {
       return (
-        <MenuLink to={item.link} key={item.id}>
+        <MenuLink to={item.link} key={item.id} onClick={() => setMenuDropped(false)}>
           {item.title}
         </MenuLink>
       )
