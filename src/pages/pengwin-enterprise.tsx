@@ -1,4 +1,5 @@
-import React, { useContext } from "react"
+import React, { useContext, Children } from "react"
+import styled from "styled-components"
 // @ts-ignore
 import SEO from "../components/seo"
 import EnterpriseCTAHero from "../components/PengwinEnterprise/EnterpriseCTAHero"
@@ -8,6 +9,31 @@ import { MediaContext } from "../components/MediaContext"
 import WindowsPengwinlinuxIllistration from "../components/PengwinEnterprise/WindowsPengwinLinuxIllistration"
 import WindowsAutomationIllistration from "../components/PengwinEnterprise/WindowsAutomationIllistration"
 import EnterpriseLinuxDistros from "../components/PengwinEnterprise/EnterpriseLinuxDistros"
+
+const FeatureTextWrapper = styled.div`
+  display: grid;
+  grid-template-rows: 0.2fr 0.8fr;
+  height: 100%;
+`
+
+const EnterpriseFeaturChild: React.FC<{ heading: string }> = ({ heading, children }) => {
+  return (
+    <FeatureTextWrapper>
+      <h1>{heading}</h1>
+      <div
+        style={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          borderTop: "2px solid #555555",
+        }}
+      >
+        {children}
+      </div>
+    </FeatureTextWrapper>
+  )
+}
 
 const PengwinEnterprise = () => {
   const { media } = useContext(MediaContext)
@@ -28,7 +54,9 @@ const PengwinEnterprise = () => {
         position="left"
         renderIllistration={() => <LinuxSoftwareIllistration width={mobile ? "300px" : "450px"} />}
       >
-        <h1>Unlock powerful Linux software on Windows 10 and Windows 10 Server</h1>
+        <EnterpriseFeaturChild heading={"Test"}>
+          <h1>Unlock powerful Linux software on Windows 10 and Windows 10 Server</h1>
+        </EnterpriseFeaturChild>
       </EnterpriseFeature>
       <EnterpriseFeature
         style={{ marginTop: "1em" }}
