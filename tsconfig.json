@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "typeRoots": ["*", "typings/"],
     "target": "es5",
     "jsx": "react",
     "lib": ["dom", "es6", "es2015", "es2017"],
