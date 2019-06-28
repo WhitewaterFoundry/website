@@ -41,6 +41,7 @@ const EnterpriseLinuxDistros: React.FC<{ maxImageWidth: string; mobile: boolean 
             }}
           >
             <img
+              data-testid={id}
               srcSet={fluid.srcSet}
               style={{ maxHeight: "120px", objectFit: "contain", margin: "0" }}
             />
