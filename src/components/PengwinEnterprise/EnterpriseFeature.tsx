@@ -20,13 +20,12 @@ const EnterpriseTextContainer = styled.div<{
     mobile ? "0" : position === "left" ? "4px 0 0 4px" : "0 4px 4px 0"};
   color: #fefbff;
   height: ${({ mobile }) => (mobile ? "250px" : "400px")};
-  font-size: 1.6em;
+  font-size: 1.2em;
   width: ${({ width }) => width};
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 1em;
-  margin-bottom: 1em;
 `
 
 const FeatureIllistrationContainer = styled.div`
