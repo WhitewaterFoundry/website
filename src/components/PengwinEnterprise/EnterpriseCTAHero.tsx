@@ -50,7 +50,9 @@ const EnterpriseCTALayout = styled.div<{ direction: string }>`
   display: flex;
   flex-direction: ${({ direction }) => direction};
 `
-const EnterpriseCTAHero: React.FC = () => {
+const EnterpriseCTAHero: React.FC<{
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+}> = ({ onClick }) => {
   const { media } = useContext(MediaContext)
   const mobile = media === "mobile" || media === "small"
 
@@ -85,7 +87,9 @@ const EnterpriseCTAHero: React.FC = () => {
               paddingTop: mobile ? "0.5em" : "3em",
             }}
           >
-            <EnterpriseCTAButton fontSize=".9em">Request a Quote</EnterpriseCTAButton>
+            <EnterpriseCTAButton fontSize=".9em" onClick={onClick}>
+              Request a Quote
+            </EnterpriseCTAButton>
           </div>
         </div>
       </EnterpriseCTALayout>
