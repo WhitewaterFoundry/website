@@ -1,4 +1,4 @@
-import React, { useContext, Children } from "react"
+import React, { useContext, Children, useRef, createRef } from "react"
 import styled from "styled-components"
 // @ts-ignore
 import SEO from "../components/seo"
@@ -9,11 +9,15 @@ import { MediaContext } from "../components/MediaContext"
 import WindowsPengwinlinuxIllistration from "../components/PengwinEnterprise/WindowsPengwinLinuxIllistration"
 import WindowsAutomationIllistration from "../components/PengwinEnterprise/WindowsAutomationIllistration"
 import EnterpriseLinuxDistros from "../components/PengwinEnterprise/EnterpriseLinuxDistros"
+import ContactForm from "../components/ContactForm/ContactForm"
 
 const FeatureTextWrapper = styled.div`
   display: grid;
   grid-template-rows: 0.2fr 0.8fr;
   height: 100%;
+  p {
+    line-height: 1.2em;
+  }
 `
 
 const EnterpriseFeaturChild: React.FC<{ heading: string }> = ({ heading, children }) => {
@@ -38,11 +42,22 @@ const EnterpriseFeaturChild: React.FC<{ heading: string }> = ({ heading, childre
 const PengwinEnterprise = () => {
   const { media } = useContext(MediaContext)
   const mobile = media === "mobile"
+  const formRef = createRef<HTMLDivElement>()
+
+  const scrollToRFQ = () => {
+    if (formRef.current) {
+      if (formRef.current.scrollIntoView) {
+        formRef.current.scrollIntoView({ behavior: "smooth" })
+      } else {
+        window.location.hash = "rfq-form"
+      }
+    }
+  }
 
   return (
     <>
       <SEO title="Pengwin Enterprise" />
-      <EnterpriseCTAHero />
+      <EnterpriseCTAHero onClick={scrollToRFQ} />
       <h3 style={{ marginTop: "3em", marginBottom: "2em", textAlign: "center", color: "#929292" }}>
         Compatible Linux Distros
       </h3>
@@ -54,8 +69,11 @@ const PengwinEnterprise = () => {
         position="left"
         renderIllistration={() => <LinuxSoftwareIllistration width={mobile ? "300px" : "450px"} />}
       >
-        <EnterpriseFeaturChild heading={"Test"}>
-          <h1>Unlock powerful Linux software on Windows 10 and Windows 10 Server</h1>
+        <EnterpriseFeaturChild heading={"Unlock Linux Software on Windows"}>
+          <p>
+            Unlock powerful Linux software on Windows 10 and Windows 10 Server, including: Azure and
+            Amazon cloud tools, Apache, Docker, Git, Go, Node.js, OpenJDK, Ruby on Rails, and Rust.
+          </p>
         </EnterpriseFeaturChild>
       </EnterpriseFeature>
       <EnterpriseFeature
@@ -65,7 +83,12 @@ const PengwinEnterprise = () => {
           <WindowsPengwinlinuxIllistration width={mobile ? "300px" : "400px"} />
         )}
       >
-        <h1>Securely connect to and administer Linux/BSD servers from Windows 10 devices</h1>
+        <EnterpriseFeaturChild heading={"Administer Linux/BSD Servers from Windows"}>
+          <p>
+            Securely connect to and administer Linux/BSD servers, both on-site and cloud, from
+            Windows 10 devices, such as a Surface Pro.
+          </p>
+        </EnterpriseFeaturChild>
       </EnterpriseFeature>
       <EnterpriseFeature
         position="left"
@@ -73,17 +96,37 @@ const PengwinEnterprise = () => {
           <WindowsAutomationIllistration width={mobile ? "300px" : "450px"} />
         )}
       >
-        <h1>Automate routine Windows and Linux tasks weaving tools from both platforms together</h1>
+        <EnterpriseFeaturChild heading={"Automate Windows and Linux"}>
+          <p>
+            Automate routine Windows and Linux tasks with Bash, Python, PowerShell, and other
+            scripting languages, weaving tools from both platforms together.
+          </p>
+        </EnterpriseFeaturChild>
       </EnterpriseFeature>
       <br />
       <EnterpriseFeature
         position="right"
         renderIllistration={() => <EnterpriseLinuxDistros maxImageWidth={"250px"} mobile={true} />}
       >
-        <h1>
-          Leverage your organization’s existing enterprise Linux subscriptions and infrastructure
-        </h1>
+        <EnterpriseFeaturChild heading={"Use Existing Infrastructure"}>
+          <p>
+            Leverage your organization’s existing enterprise Linux subscriptions and infrastructure,
+            including Red Hat Satellite, Ansible, and Space Walk.
+          </p>
+        </EnterpriseFeaturChild>
       </EnterpriseFeature>
+
+      <div
+        style={{ marginTop: "8em", display: "flex", justifyContent: "center" }}
+        className={"rfq-form"}
+      >
+        <ContactForm
+          containerId="request-quote-form"
+          headingText="Request a quote"
+          style={{ width: mobile ? "100%" : "80%" }}
+          ref={formRef}
+        />
+      </div>
     </>
   )
 }
