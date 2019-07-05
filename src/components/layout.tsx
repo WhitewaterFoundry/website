@@ -1,17 +1,11 @@
 import React, { useState } from "react"
-import styled from "styled-components"
 import { useMediaQueries } from "../hooks/useMediaQueries"
 import { MediaContext } from "./MediaContext"
-import Header from "./header"
+import Nav from "./nav"
 import Footer from "./footer"
 import { useMenuItems } from "./MainMenu/useMenuItems"
 import "./layout.css"
 import MediaWrapper from "./Common/MediaWrapper"
-
-const HeaderWrapper = styled.div<{ mobile: boolean }>`
-  ${({ mobile }) => (mobile ? "position: fixed; top: 0;" : "position: absolute; top: 0;")}
-  width: 100%;
-`
 
 const Layout: React.FC = ({ children }) => {
   const [media, setCurrentMedia] = useState("none")
@@ -48,9 +42,11 @@ const Layout: React.FC = ({ children }) => {
           <footer>
             <Footer mobile={mobile} />
           </footer>
-          <HeaderWrapper mobile={mobile}>
-            <Header menuItems={menuItems} mobile={mobile} />
-          </HeaderWrapper>
+          <Nav
+            style={{ position: mobile ? "fixed" : "absolute", top: "0", width: "100%" }}
+            menuItems={menuItems}
+            mobile={mobile}
+          />
         </div>
       </MediaContext.Provider>
     </>

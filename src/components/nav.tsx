@@ -1,14 +1,19 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import Img from "gatsby-image"
 import MainMenu from "./MainMenu/MainMenu"
-import { useWebsiteLogo } from "../components/MainMenu/useWebsiteLogo"
+import { useWebsiteLogo } from "./MainMenu/useWebsiteLogo"
 import MenuItem from "./MainMenu/MenuItem"
 
-const Header: React.FC<{ menuItems: MenuItem[]; mobile: boolean }> = ({ menuItems, mobile }) => (
-  <header
+const Nav: React.FC<{ menuItems: MenuItem[]; mobile: boolean; style: CSSProperties }> = ({
+  menuItems,
+  mobile,
+  style,
+}) => (
+  <nav
     style={{
       background: `#FFF`,
       height: "70px",
+      ...style,
     }}
   >
     <MainMenu
@@ -16,7 +21,7 @@ const Header: React.FC<{ menuItems: MenuItem[]; mobile: boolean }> = ({ menuItem
       renderIcon={() => <Img fluid={useWebsiteLogo()} />}
       mobile={mobile}
     />
-  </header>
+  </nav>
 )
 
-export default Header
+export default Nav
