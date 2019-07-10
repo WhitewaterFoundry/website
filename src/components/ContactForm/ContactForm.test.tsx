@@ -1,8 +1,8 @@
 import * as React from "react"
-import { render, cleanup } from "react-testing-library"
+import { render, cleanup } from "@testing-library/react"
 import "jest-dom/extend-expect"
 import ContactForm from "./ContactForm"
-import "react-testing-library/cleanup-after-each"
+import "@testing-library/react/cleanup-after-each"
 
 afterEach(() => {
   cleanup()

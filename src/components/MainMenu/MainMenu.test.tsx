@@ -1,9 +1,9 @@
 import * as React from "react"
-import { render, cleanup } from "react-testing-library"
+import { render, cleanup } from "@testing-library/react"
 import "jest-dom/extend-expect"
 import MainMenu from "./MainMenu"
 import MenuItem from "./MenuItem"
-import "react-testing-library/cleanup-after-each"
+import "@testing-library/react/cleanup-after-each"
 
 const mockMenuItems: Array<MenuItem> = [
   { title: "Test 1", link: "/test1", id: "test1" },
