@@ -16,7 +16,7 @@ interface PosedRectProps {
   className?: string
 }
 
-const PosedRect = posed.rect<{ closeWidth: number }>({
+const PosedRect = posed.rect({
   "menu-visible": {
     width: (props: PosedRectProps) => props.closeWidth,
     x: (props: PosedRectProps) => props.closeX,
@@ -65,7 +65,7 @@ const IconWrapper = styled.div`
 const MenuIcon: React.FC<{
   menuVisible: boolean
   clickHandler: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined
-  scale: number
+  scale?: number
 }> = ({ menuVisible, clickHandler, scale = 1 }) => {
   const linePose = menuVisible ? "menu-visible" : "menu-hidden"
   return (
