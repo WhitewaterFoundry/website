@@ -70,36 +70,40 @@ exports[`<MainMenu /> Matches the previous accepted snapshot with mobile=true. 1
         class="sc-htpNat iTUDjS"
       >
         <div
-          class="sc-bxivhb jpKkbv"
+          class="sc-bxivhb ePYhrE"
         >
           <svg
             height="40"
             id="icon"
+            viewBox="0 0 40 40"
             width="40"
           >
             <rect
-              class="line "
+              class="line"
               fill="#363636"
               height="2"
               rx="1"
+              transform="translate(0, 0) translate(NaN, NaN) scale(1, 1) translate(NaN, NaN) rotate(0, NaN, NaN) skewX(0) skewY(0) "
               width="34"
               x="4"
               y="10"
             />
             <rect
-              class="line "
+              class="line"
               fill="#363636"
               height="2"
               rx="1"
+              transform="translate(0, 0) translate(NaN, NaN) scale(1, 1) translate(NaN, NaN) rotate(0, NaN, NaN) skewX(0) skewY(0) "
               width="28"
               x="4"
               y="21"
             />
             <rect
-              class="line "
+              class="line"
               fill="#363636"
               height="2"
               rx="1"
+              transform="translate(0, 0) translate(NaN, NaN) scale(1, 1) translate(NaN, NaN) rotate(0, NaN, NaN) skewX(0) skewY(0) "
               width="34"
               x="4"
               y="34"
