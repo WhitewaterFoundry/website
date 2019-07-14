@@ -37,8 +37,8 @@ const SubmitButton = styled.button`
 
 interface ContactFormProps {
   headingText: string
+  onSubmit: (event: FormEvent) => void
   action?: string
-  onSubmit?: (event: FormEvent) => void
   containerId?: string
   style?: CSSProperties
 }
