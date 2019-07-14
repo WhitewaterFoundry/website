@@ -1,5 +1,5 @@
 import * as React from "react"
-import { render, cleanup } from "@testing-library/react"
+import { render, cleanup, fireEvent } from "@testing-library/react"
 import "jest-dom/extend-expect"
 import ContactForm from "./ContactForm"
 import "@testing-library/react/cleanup-after-each"
@@ -9,7 +9,10 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
-const renderContactForm = () => render(<ContactForm headingText="Test Heading Text" />)
+const submitFormSpy = jest.fn()
+
+const renderContactForm = () =>
+  render(<ContactForm headingText="Test Heading Text" onSubmit={submitFormSpy} />)
 
 describe("<EnterpriseLinuxDistros />", () => {
   it("Has a Name label with an input type=text as it's child", () => {
@@ -52,5 +55,17 @@ describe("<EnterpriseLinuxDistros />", () => {
     const { getByText } = renderContactForm()
     const submitButton = getByText("Submit")
     expect(submitButton.getAttribute("type")).toBe("submit")
+  })
+
+  it("Calls onSubmit functional prop once when form submitted", () => {
+    const { getByText, getByLabelText } = renderContactForm()
+
+    getByLabelText("Name").innerText = "Kevin Brock"
+    getByLabelText("Email").innerText = "kevin@kbrock84.com"
+    getByLabelText("Title").innerText = "Some Dev"
+    getByLabelText("Organization").innerText = "Whitewater Foundry"
+
+    fireEvent.click(getByText(/submit/i).closest("button")!)
+    expect(submitFormSpy).toBeCalledTimes(1)
   })
 })
