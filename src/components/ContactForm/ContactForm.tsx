@@ -33,6 +33,7 @@ const SubmitButton = styled.button`
   font-size: 1.2em;
   color: #fefbff;
   padding: 8px 24px 8px 24px;
+  cursor: pointer;
 `
 
 interface ContactFormProps {
