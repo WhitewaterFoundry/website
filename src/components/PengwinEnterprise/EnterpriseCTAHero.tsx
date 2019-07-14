@@ -54,18 +54,21 @@ const EnterpriseCTAHero: React.FC<{
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }> = ({ onClick }) => {
   const { media } = useContext(MediaContext)
-  const mobile = media === "mobile" || media === "small"
+  const mobile = media === "mobile" || media === "small" || media === "medium"
 
   return (
-    <PengwinEnterpriseCTA fontSize={mobile ? "1.6em" : "2.2em"}>
-      <BGContainer>
+    <PengwinEnterpriseCTA
+      fontSize={mobile ? "1.6em" : "2.1em"}
+      style={{ minWidth: mobile ? "" : "1100px" }}
+    >
+      <BGContainer style={{ minHeight: mobile ? "" : "600px" }}>
         <BGLogoContainer>
           <LiveTileIcon width="130%" height="130%" />
         </BGLogoContainer>
       </BGContainer>
       <EnterpriseCTALayout direction={mobile ? "column" : "row"}>
-        <div style={{ paddingTop: "5%" }}>
-          <PengwinWebsiteLogo width={mobile ? "300" : "50vw"} height="100%" />
+        <div style={{ paddingTop: "5%", width: "100%" }}>
+          <PengwinWebsiteLogo width={mobile ? "300" : "40vw"} height="85%" />
         </div>
         <div>
           <div style={{ display: "flex", justifyContent: "center" }}>
