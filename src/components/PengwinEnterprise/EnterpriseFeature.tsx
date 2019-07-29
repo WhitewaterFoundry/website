@@ -41,7 +41,7 @@ const EnterpriseFeature: React.FC<{
   style?: CSSProperties
 }> = ({ children, renderIllistration, position, style }) => {
   const { media } = useContext(MediaContext)
-  const mobile = media === "mobile" || media === "small"
+  const mobile = media === "mobile" || media === "small" || media === "medium"
   const rowDirection = position === "left" ? "row" : "row-reverse"
   return (
     <EnterpriseFeatureWrapper
