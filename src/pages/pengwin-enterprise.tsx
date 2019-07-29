@@ -1,8 +1,9 @@
-import React, { useContext, Children, useRef, createRef } from "react"
+import React, { useContext, createRef } from "react"
 import styled from "styled-components"
 // @ts-ignore
 import SEO from "../components/seo"
-import EnterpriseCTAHero from "../components/PengwinEnterprise/EnterpriseCTAHero"
+import CTAHero from "../components/CTAHero/CTAHero"
+import CTAButton from "../components/CTAHero/CTAButton"
 import EnterpriseFeature from "../components/PengwinEnterprise/EnterpriseFeature"
 import LinuxSoftwareIllistration from "../components/PengwinEnterprise/LinuxSoftwareIllistration"
 import { MediaContext } from "../components/MediaContext"
@@ -10,6 +11,8 @@ import WindowsPengwinlinuxIllistration from "../components/PengwinEnterprise/Win
 import WindowsAutomationIllistration from "../components/PengwinEnterprise/WindowsAutomationIllistration"
 import EnterpriseLinuxDistros from "../components/PengwinEnterprise/EnterpriseLinuxDistros"
 import ContactForm from "../components/ContactForm/ContactForm"
+import PengwinWebsiteLogo from "../svg/pengwin-website-logo"
+import LiveTileIcon from "../svg/live-tile-icon"
 
 const FeatureTextWrapper = styled.div`
   display: grid;
@@ -39,9 +42,14 @@ const EnterpriseFeaturChild: React.FC<{ heading: string }> = ({ heading, childre
   )
 }
 
+const formSubmitHandler = e => {
+  e.preventDefault()
+  console.error("Form submittion not yet implemented")
+}
+
 const PengwinEnterprise = () => {
   const { media } = useContext(MediaContext)
-  const mobile = media === "mobile"
+  const mobile = media === "mobile" || media === "small" || media === "medium"
   const formRef = createRef<HTMLDivElement>()
 
   const scrollToRFQ = () => {
@@ -57,14 +65,20 @@ const PengwinEnterprise = () => {
   return (
     <>
       <SEO title="Pengwin Enterprise" />
-      <EnterpriseCTAHero onClick={scrollToRFQ} />
+      <CTAHero
+        renderButton={() => (
+          <CTAButton onClick={scrollToRFQ} fontSize={".9em"}>
+            Request a Quote
+          </CTAButton>
+        )}
+        renderText={() => "Unleash your organization’s developers and IT staff"}
+        renderLogo={() => <PengwinWebsiteLogo width={mobile ? "300" : "40vw"} height="85%" />}
+        renderHero={() => <LiveTileIcon width="130%" height="130%" />}
+      />
       <h3 style={{ marginTop: "3em", marginBottom: "2em", textAlign: "center", color: "#929292" }}>
         Compatible Linux Distros
       </h3>
-      <EnterpriseLinuxDistros
-        maxImageWidth={"200px"}
-        mobile={media === "mobile" || media === "small"}
-      />
+      <EnterpriseLinuxDistros maxImageWidth={"200px"} mobile={media === "mobile"} />
       <EnterpriseFeature
         position="left"
         renderIllistration={() => <LinuxSoftwareIllistration width={mobile ? "300px" : "450px"} />}
@@ -121,6 +135,7 @@ const PengwinEnterprise = () => {
         className={"rfq-form"}
       >
         <ContactForm
+          onSubmit={formSubmitHandler}
           containerId="request-quote-form"
           headingText="Request a quote"
           style={{ width: mobile ? "100%" : "80%" }}
