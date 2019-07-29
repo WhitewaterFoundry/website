@@ -7,11 +7,19 @@ module.exports = {
   plugins: [
     `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `mdx`,
+        path: `${__dirname}/src/images`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/mdx`,
       },
     },
     {

@@ -1,0 +1,70 @@
+### What is WSL?
+
+Windows Subsystem for Linux is a compatibility layer for running Linux binaries natively in a console environment on Windows 10.
+No re-compilation or porting is required. WSL provides a Linux-compatible kernel interface developed by Microsoft and allows a
+user to chose a Linux distribution to install from the Microsoft Store. A Linux distribution provides binary package management
+in a containerized environment. WSL provides an interface to mount drives within WSL, for example c:\ is automatically mounted as /mnt/c.
+
+### What is WSL good for?
+
+WSL is great tool for developers, engineers, students, and \*NIX/Linux geeks (or anyone aspiring to become one) who want to run
+Linux tools on Windows. Most of the things you can do with WSL are going to be related to programming, the console,
+sysadmin, automation, AI/data science, and other IT tasks.
+
+### Is this Emulation?
+
+Windows Subsystem for Linux is not an emulator or virtualizer like VirtualBox. WSL executes unmodified Linux ELF64
+binaries by operating a Linux kernel interface on top of the Windows kernel in Windows 10. The WSL kernel interface
+translates Linux system calls from the binaries into Windows system calls and then executes them at native speed.
+WSL is closer in its approach to Wine which is a compatibility layer to run Windows binaries on Linux by re-implementing
+Windows system and API calls in libraries. More details on how WSL works.
+
+- Low-level networking tools.
+- No accelerated graphics or sound.
+- Very limited support for peripherals.
+- High-speed file I/O.
+
+### What about GUI apps?
+
+Yes, a suprising number of Linux GUI apps can run on WSL even though this is not officially supported by Microsoft. Running a GUI app requires an X server on Windows. The X server must be downloaded, installed, and running for your GUI app to open from WSL. Otherwise it will complain of not finding a display. X servers for Windows include X410, VcXsrv, and Xming.
+
+## Why should I pay for Pengwin?
+
+- Pengwin is the first Linux distribution designed with WSL in mind.
+- Pengwin contains hundreds of minor tweaks to the upstream distribution that optimize the experience on WSL.
+- The Pengwin team regularly adds new features, patch bugs, and provide support via GitHub.
+- Pengwin provides employment for independent open source developers and contributors.
+- Pengwin works with upstream open-source communities to submit bug reports and patches.
+- Pengwin financially supports upstream and related open source projects.
+
+## How do I enable WSL in Windows 10?
+
+### Method 1:
+
+Open PowerShell as Administrator and run:
+
+```PowerShell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+
+### Method 2:
+
+Start -> Settings -> Apps -> Apps and Features -> Programs and Features -> Turn Windows feature on or off -> Check Windows Subsystem for Linux -> OK
+
+Restart Windows when prompted.
+
+## Where can I learn more about WSL?
+
+- [Awesome-WSL](https://github.com/sirredbeard/Awesome-WSL)
+
+- [Awesome-Bash](https://github.com/sirredbeard/Awesome-WSL)
+
+- [Microsoft Docs](https://docs.microsoft.com/en-us/windows/wsl/about)
+
+- [apt Package Manager reference](https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_basic_package_management_operations_with_the_commandline)
+
+- [Microsoft DevBlogs﻿](https://devblogs.microsoft.com/commandline/tag/wsl/)
+
+- [Pengwin Blog](https://www.pengwin.dev/blog) - [RSS](https://www.pengwin.dev/blog?format=rss)
+
+- [@PengwinLinux](https://twitter.com/pengwinlinux)
