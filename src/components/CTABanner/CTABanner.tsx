@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import MicrosoftStoreLink from "./MicrosoftStoreLink"
+import MicrosoftStoreLink from "../Common/MicrosoftStoreLink"
 import { MediaContext } from "../MediaContext"
 import { useBannerImage } from "./useBannerImage"
 
@@ -42,7 +42,7 @@ const CTABanner: React.FC<{}> = () => {
         style={mobile ? { display: "flex", justifyContent: "center", alignItems: "center" } : {}}
       >
         <StoreLinkWrapper mobile={mobile}>
-          <MicrosoftStoreLink />
+          <MicrosoftStoreLink href="//www.microsoft.com/store/apps/9nv1gv1pxz6p?cid=storebadge&ocid=badge" />
         </StoreLinkWrapper>
       </div>
     </div>

@@ -1,6 +1,8 @@
+import React from "react"
+import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
-export const useMicrosoftImage = () => {
+const useMicrosoftImage = () => {
   const data = useStaticQuery(graphql`
     {
       placeholderImage: file(
@@ -17,3 +19,13 @@ export const useMicrosoftImage = () => {
 
   return data.placeholderImage.childImageSharp.fluid
 }
+
+const MicrosoftStoreLink: React.FC<{ href: string }> = ({ href }) => {
+  return (
+    <a href={href}>
+      <Img fluid={useMicrosoftImage()} alt="English badge" />
+    </a>
+  )
+}
+
+export default MicrosoftStoreLink
