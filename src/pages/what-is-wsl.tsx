@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { useStaticQuery, graphql } from "gatsby"
 import WhatIsWSLHero from "../svg/what-is-wsl-hero"
+import CopyContainer from "../components/Common/CopyContainer"
 
 const WhatIsWSL = () => {
   const data = useStaticQuery(graphql`
@@ -13,7 +14,6 @@ const WhatIsWSL = () => {
         edges {
           node {
             childMdx {
-              rawBody
               body
             }
           }
@@ -24,8 +24,11 @@ const WhatIsWSL = () => {
   return (
     <>
       <SEO title="Pengwin Enterprise" />
+
       <WhatIsWSLHero width={"100%"} height={""} />
-      <MDXRenderer>{data.allFile.edges[0].node.childMdx.body}</MDXRenderer>
+      <CopyContainer>
+        <MDXRenderer>{data.allFile.edges[0].node.childMdx.body}</MDXRenderer>
+      </CopyContainer>
     </>
   )
 }
