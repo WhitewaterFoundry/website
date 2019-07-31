@@ -1,5 +1,4 @@
 import React from "react"
-export const MediaContext = React.createContext<{ media: string | null; portrait: boolean }>({
+export const MediaContext = React.createContext<{ media: string | null }>({
   media: null,
-  portrait: false,
 })

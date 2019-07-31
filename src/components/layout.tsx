@@ -9,7 +9,6 @@ import MediaWrapper from "./Common/MediaWrapper"
 
 const Layout: React.FC = ({ children }) => {
   const [media, setCurrentMedia] = useState("none")
-  const [portrait, setPortrait] = useState("none")
 
   useMediaQueries(
     [
@@ -21,14 +20,12 @@ const Layout: React.FC = ({ children }) => {
     setCurrentMedia
   )
 
-  useMediaQueries([["portrait", "(orientation: portrait)"]], setPortrait)
-
   const menuItems = useMenuItems()
   const mobile = media === "mobile" || media === "small"
 
   return (
     <>
-      <MediaContext.Provider value={{ media: media, portrait: portrait === "portrait" }}>
+      <MediaContext.Provider value={{ media: media }}>
         <div
           style={{
             margin: `0 auto`,

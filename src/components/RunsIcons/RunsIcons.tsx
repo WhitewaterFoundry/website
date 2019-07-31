@@ -28,8 +28,8 @@ const IconWrapper = styled.div`
 `
 
 const RunsIcons: React.FC = () => {
-  const { media, portrait } = useContext(MediaContext)
-  const mobile = media === "mobile" || media === "small" || portrait
+  const { media } = useContext(MediaContext)
+  const mobile = media === "mobile" || media === "small"
   return (
     <div>
       <h4>Pengwin Runs:</h4>
