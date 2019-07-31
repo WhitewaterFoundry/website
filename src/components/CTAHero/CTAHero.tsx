@@ -5,16 +5,15 @@ import { MediaContext } from "../MediaContext"
 const PengwinCTA = styled.div<{ fontSize: string }>`
   width: 100%;
   font-family: Ubuntu;
-  height: 90vh;
+  min-height: 95vh;
   font-size: ${({ fontSize }) => fontSize};
 `
 const BGContainer = styled.div`
   position: absolute;
-  top: 70px;
+  top: 0;
   width: 100%;
-  height: 95vh;
+  height: 115%;
   z-index: -2;
-  background-color: #212121;
 `
 const BGLogoContainer = styled.div`
   width: 100%;
@@ -26,9 +25,10 @@ const BGLogoContainer = styled.div`
   opacity: 0.05;
 `
 
-const CTALayout = styled.div<{ direction: string }>`
-  display: flex;
-  flex-direction: ${({ direction }) => direction};
+const CTALayout = styled.div<{ direction: "row" | "column" }>`
+  display: grid;
+  ${({ direction }) =>
+    direction === "row" ? "grid-template-columns: 1fr 1fr;" : "grid-template-columns : auto;"}
 `
 
 interface EnterpriseCTAHeroProps {
@@ -36,6 +36,7 @@ interface EnterpriseCTAHeroProps {
   renderText: Function
   renderLogo: Function
   renderHero: Function
+  backgroundColor: string
 }
 
 const CTAHero: React.FC<EnterpriseCTAHeroProps> = ({
@@ -43,13 +44,17 @@ const CTAHero: React.FC<EnterpriseCTAHeroProps> = ({
   renderText,
   renderLogo,
   renderHero,
+  backgroundColor,
 }) => {
   const { media } = useContext(MediaContext)
   const mobile = media === "mobile" || media === "small" || media === "medium"
 
   return (
-    <PengwinCTA fontSize={mobile ? "1.6em" : "2.1em"} style={{ minWidth: mobile ? "" : "1100px" }}>
-      <BGContainer style={{ minHeight: mobile ? "" : "600px" }}>
+    <PengwinCTA
+      fontSize={mobile ? "1.6em" : "2.1em"}
+      style={{ minWidth: mobile ? "" : "1100px", overflow: "hidden" }}
+    >
+      <BGContainer style={{ minHeight: mobile ? "600px" : "", backgroundColor: backgroundColor }}>
         <BGLogoContainer>{renderHero()}</BGLogoContainer>
       </BGContainer>
       <CTALayout direction={mobile ? "column" : "row"}>
@@ -59,9 +64,9 @@ const CTAHero: React.FC<EnterpriseCTAHeroProps> = ({
             <h1
               style={{
                 color: "#9A54BB",
-                paddingTop: mobile ? "0" : "3em",
-                transform: mobile ? "" : "translateX(-5%)",
-                marginLeft: "0.7em",
+                paddingTop: mobile ? "0" : "2.8em",
+                maxWidth: mobile ? "480px" : "1200px",
+                transform: "translateX(-5%)",
               }}
             >
               {renderText()}
@@ -70,8 +75,8 @@ const CTAHero: React.FC<EnterpriseCTAHeroProps> = ({
           <div
             style={{
               display: "flex",
-              justifyContent: "center",
-              paddingTop: mobile ? "0.5em" : "3em",
+              justifyContent: mobile ? "center" : "flex-start",
+              paddingTop: mobile ? "0.5em" : "8%",
             }}
           >
             {renderButton()}
