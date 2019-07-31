@@ -11,7 +11,7 @@ import WindowsPengwinlinuxIllistration from "../components/PengwinEnterprise/Win
 import WindowsAutomationIllistration from "../components/PengwinEnterprise/WindowsAutomationIllistration"
 import EnterpriseLinuxDistros from "../components/PengwinEnterprise/EnterpriseLinuxDistros"
 import ContactForm from "../components/ContactForm/ContactForm"
-import PengwinWebsiteLogo from "../svg/pengwin-website-logo"
+import PengwinWebsiteLogo from "../svg/pengwin-website-enterprise-logo"
 import LiveTileIcon from "../svg/live-tile-icon"
 
 const FeatureTextWrapper = styled.div`
@@ -72,10 +72,11 @@ const PengwinEnterprise = () => {
           </CTAButton>
         )}
         renderText={() => "Unleash your organization’s developers and IT staff"}
-        renderLogo={() => <PengwinWebsiteLogo width={mobile ? "300" : "40vw"} height="85%" />}
+        renderLogo={() => <PengwinWebsiteLogo width={mobile ? "300" : "100%"} height="85%" />}
         renderHero={() => <LiveTileIcon width="130%" height="130%" />}
+        backgroundColor="#212121"
       />
-      <h3 style={{ marginTop: "3em", marginBottom: "2em", textAlign: "center", color: "#929292" }}>
+      <h3 style={{ marginTop: "4em", marginBottom: "2em", textAlign: "center", color: "#929292" }}>
         Compatible Linux Distros
       </h3>
       <EnterpriseLinuxDistros maxImageWidth={"200px"} mobile={media === "mobile"} />
