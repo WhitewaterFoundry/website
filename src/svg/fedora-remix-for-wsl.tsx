@@ -26,9 +26,7 @@ const FedoraRemixforWSLHero: React.FC<{ width: string; height: string }> = ({ wi
       height={height}
     >
       <g clipPath="url(#clip0)">
-        <path fill="#fff" d="M0 0H1440V442H0z" />
         <path fill="#212121" d="M441 0H1440V442H441z" />
-        <path fill="#FEFBFF" d="M0 0H441V524H0z" />
         <path fill="url(#pattern0)" d="M85 86H355V356H85z" />
         <path
           fill="#fff"

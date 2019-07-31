@@ -9,14 +9,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useMediaQueries } from "../hooks/useMediaQueries"
 import MicrosoftStoreLink from "../components/Common/MicrosoftStoreLink"
 import ChocolateyLink from "../components/Common/ChocolateyLink"
-import styled from "styled-components"
-
-const CenterDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
 
 const FedoraRemixForWSL = () => {
   const [mediaSize, setMediaSize] = useState("normal")
@@ -41,23 +33,50 @@ const FedoraRemixForWSL = () => {
     <>
       <SEO title="Fedora Remix for WSL" />
       <div
-        style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "center" }}
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          backgroundColor: "#5E9FFB",
+        }}
       >
         <FedoraRemixForWSLHero width={mediaSize === "normal" ? "100%" : "1400px"} height={""} />
       </div>
       <div
         style={{
-          padding: "2em",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
+          width: "100%",
+          background:
+            "linear-gradient(123.03deg, #B9D6FF -20.62%, #9AB2D5 -20.62%, #000000 144.87%)",
+
+          paddingTop: "1.8em",
+          paddingBottom: "1em",
         }}
       >
-        <div style={{ width: "320px", margin: "auto" }}>
-          <MicrosoftStoreLink href="//www.microsoft.com/store/apps/9n6gdm4k2hnc?cid=storebadge&ocid=badge" />
-        </div>
-        <div style={{ width: "256px", margin: "auto" }}>
-          <ChocolateyLink href="https://chocolatey.org/packages/wsl-fedoraremix" />
+        <h2
+          style={{
+            textAlign: "center",
+            marginBottom: 0,
+            fontWeight: "bolder",
+            color: "#fff",
+          }}
+        >
+          Where to get it
+        </h2>
+        <div
+          style={{
+            padding: "2em",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <div style={{ width: "320px", marginLeft: "auto", marginRight: "16px" }}>
+            <MicrosoftStoreLink href="//www.microsoft.com/store/apps/9n6gdm4k2hnc?cid=storebadge&ocid=badge" />
+          </div>
+          <div style={{ width: "169.9px", marginRight: "auto", marginLeft: "16px" }}>
+            <ChocolateyLink href="https://chocolatey.org/packages/wsl-fedoraremix" />
+          </div>
         </div>
       </div>
       <CopyContainer>
