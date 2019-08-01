@@ -65,7 +65,6 @@ const MainMenu: React.FC<Props> = ({ menuItems, renderIcon, mobile }) => {
   const [menuDropped, setMenuDropped] = useState<boolean>(false)
   const renderLinks = () =>
     menuItems.map((item: MenuItem) => {
-      console.log(window.location)
       return (
         <MenuLink to={item.link} key={item.id} onClick={() => setMenuDropped(false)}>
           <MenuLinkTextContainer>
