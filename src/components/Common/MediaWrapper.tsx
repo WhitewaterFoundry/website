@@ -17,19 +17,14 @@ const PageWrapper = styled.div<{ media: string; getFontSize: Function }>`
 const getFontSize = (media: string) => {
   switch (media) {
     case "mobile":
-      console.log("mobile: 1.1")
       return "1.1em"
     case "small":
-      console.log("small: 1.1")
       return "1.1em"
     case "medium":
-      console.log("med: 1.3")
       return "1.2em"
     case "large":
-      console.log("large: 1.5")
       return "1.3em"
     default:
-      console.log("default: 1.1")
       return "1.1em"
   }
 }
