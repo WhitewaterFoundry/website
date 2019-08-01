@@ -15,6 +15,26 @@ const MenuLinksWrapper = styled.div`
   height: 100%;
 `
 
+const MenuLinkTextContainer = styled.div`
+  padding: 6px;
+  border-radius: 2px;
+  color: #5c2e72;
+  :hover {
+    background: linear-gradient(97.83deg, rgb(185, 38, 236) -2.05%, rgb(138, 0, 203) 100%) repeat
+      scroll 0% 0%;
+    color: #fff;
+  }
+`
+
+const MenuLinkUnderline = styled.div<{ visible: boolean }>`
+  width: 100%;
+  height: 3px;
+  ${({ visible }) =>
+    visible
+      ? "background: linear-gradient(97.83deg, rgb(185, 38, 236) -2.05%, rgb(138, 0, 203) 100%) repeat scroll 0% 0%;"
+      : ";"}
+`
+
 const DropDown = styled.div<{ height: string; opacity: number }>`
   position: absolute;
   top: 70px;
@@ -45,9 +65,13 @@ const MainMenu: React.FC<Props> = ({ menuItems, renderIcon, mobile }) => {
   const [menuDropped, setMenuDropped] = useState<boolean>(false)
   const renderLinks = () =>
     menuItems.map((item: MenuItem) => {
+      console.log(window.location)
       return (
         <MenuLink to={item.link} key={item.id} onClick={() => setMenuDropped(false)}>
-          {item.title}
+          <MenuLinkTextContainer>
+            {item.title}
+            <MenuLinkUnderline visible={item.link === location.pathname} />
+          </MenuLinkTextContainer>
         </MenuLink>
       )
     })
