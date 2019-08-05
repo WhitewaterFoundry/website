@@ -1,3 +1,5 @@
+const { resolve } = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `Pengwin for WSL`,
@@ -7,18 +9,25 @@ module.exports = {
   plugins: [
     `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-mdx`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        name: `mdx`,
-        path: `${__dirname}/src/images`,
+        defaultLayouts: {
+          default: resolve("src/templates/blog-post.js"),
+        },
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `mdx`,
         path: `${__dirname}/src/mdx`,
       },
     },
@@ -26,7 +35,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: "blog-posts",
-        path: `${__dirname}/src/blog`,
+        path: `${__dirname}/src/mdx/blog-posts`,
       },
     },
     {
@@ -50,7 +59,6 @@ module.exports = {
         icon: `src/images/pengwin-logo.png`,
       },
     },
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-typescript`,
       options: {

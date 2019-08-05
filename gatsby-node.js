@@ -2,19 +2,20 @@ const path = require("path")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
+  const blogPostTemplate = path.resolve(`src/components/blog/BlogTemplate.tsx`)
 
   return graphql(`
     query loadPostsQuery {
-      allMarkdownRemark {
+      allMdx(filter: { fileAbsolutePath: { regex: "/blog-posts/.*/" } }) {
         edges {
           node {
-            html
+            body
             frontmatter {
-              date
-              path
               title
               author
+              date
+              path
+              keywords
             }
           }
         }
@@ -25,12 +26,12 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    result.data.allMarkdownRemark.edges.forEach(edge => {
+    result.data.allMdx.edges.forEach(edge => {
       createPage({
         path: edge.node.frontmatter.path,
         component: blogPostTemplate,
         context: {
-          html: edge.node.html,
+          body: edge.node.body,
           date: edge.node.frontmatter.date,
           title: edge.node.frontmatter.title,
           author: edge.node.frontmatter.author,
