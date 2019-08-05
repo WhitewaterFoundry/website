@@ -4,9 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import CopyContainer from "../Common/CopyContainer"
 import BlogHeading from "./BlogHeading"
 
-type PostData = { pageContext: { title: string; author: string; date: string; body: string } }
-
-const BlogPostTemplate: React.FC<PostData> = ({ pageContext: { title, author, date, body } }) => {
+const BlogPostTemplate = ({ pageContext: { title, author, date, body } }) => {
   return (
     <>
       <CopyContainer>
