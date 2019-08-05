@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styled from "styled-components"
 import MenuItem from "./MenuItem"
 import MenuLink from "./MenuLink"
@@ -63,13 +63,17 @@ interface Props {
 
 const MainMenu: React.FC<Props> = ({ menuItems, renderIcon, mobile }) => {
   const [menuDropped, setMenuDropped] = useState<boolean>(false)
+  const [currentLocation, setCurrentLocation] = useState<string>("")
+  useEffect(() => {
+    setCurrentLocation(window.location.pathname)
+  })
   const renderLinks = () =>
     menuItems.map((item: MenuItem) => {
       return (
         <MenuLink to={item.link} key={item.id} onClick={() => setMenuDropped(false)}>
           <MenuLinkTextContainer>
             {item.title}
-            <MenuLinkUnderline visible={item.link === location.pathname} />
+            <MenuLinkUnderline visible={item.link === currentLocation} />
           </MenuLinkTextContainer>
         </MenuLink>
       )
