@@ -3,6 +3,7 @@ import { MediaContext } from "../MediaContext"
 import styled from "styled-components"
 
 const PageWrapper = styled.div<{ media: string; getFontSize: Function }>`
+  margin-top: 72px;
   h1,
   h2,
   h3,

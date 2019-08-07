@@ -30,7 +30,6 @@ const Layout: React.FC = ({ children }) => {
           style={{
             margin: `0 auto`,
             padding: `0`,
-            paddingTop: "72px",
           }}
         >
           <main>
