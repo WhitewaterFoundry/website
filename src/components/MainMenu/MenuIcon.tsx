@@ -53,6 +53,7 @@ const ButtonWrapper = styled.button`
   align-items: center;
   text-align: center;
   vertical-align: middle;
+  cursor: pointer;
 `
 
 const IconWrapper = styled.div`
@@ -69,7 +70,7 @@ const MenuIcon: React.FC<{
 }> = ({ menuVisible, clickHandler, scale = 1 }) => {
   const linePose = menuVisible ? "menu-visible" : "menu-hidden"
   return (
-    <ButtonWrapper onClick={clickHandler}>
+    <ButtonWrapper aria-label="Menu button" onClick={clickHandler}>
       <IconWrapper>
         <svg id="icon" width={String(40 * scale)} height={String(40 * scale)} viewBox="0 0 40 40">
           <Rect
