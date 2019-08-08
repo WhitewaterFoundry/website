@@ -20,7 +20,7 @@ const EnterpriseTextContainer = styled.div<{
     mobile ? "0" : position === "left" ? "4px 0 0 4px" : "0 4px 4px 0"};
   color: #fefbff;
   height: ${({ mobile }) => (mobile ? "250px" : "400px")};
-  font-size: 1.2em;
+  font-size: 1.1em;
   width: ${({ width }) => width};
   display: flex;
   justify-content: flex-end;
