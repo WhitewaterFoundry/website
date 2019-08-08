@@ -76,72 +76,84 @@ const PengwinEnterprise = () => {
         renderHero={() => <LiveTileIcon width="130%" height="130%" />}
         backgroundColor="#212121"
       />
-      <h3 style={{ marginTop: "4em", marginBottom: "2em", textAlign: "center", color: "#929292" }}>
-        Compatible Linux Distros
-      </h3>
-      <EnterpriseLinuxDistros maxImageWidth={"200px"} mobile={media === "mobile"} />
-      <EnterpriseFeature
-        position="left"
-        renderIllistration={() => <LinuxSoftwareIllistration width={mobile ? "300px" : "450px"} />}
-      >
-        <EnterpriseFeaturChild heading={"Unlock Linux Software on Windows"}>
-          <p>
-            Unlock powerful Linux software on Windows 10 and Windows 10 Server, including: Azure and
-            Amazon cloud tools, Apache, Docker, Git, Go, Node.js, OpenJDK, Ruby on Rails, and Rust.
-          </p>
-        </EnterpriseFeaturChild>
-      </EnterpriseFeature>
-      <EnterpriseFeature
-        style={{ marginTop: "1em" }}
-        position="right"
-        renderIllistration={() => (
-          <WindowsPengwinlinuxIllistration width={mobile ? "300px" : "400px"} />
-        )}
-      >
-        <EnterpriseFeaturChild heading={"Administer Linux/BSD Servers from Windows"}>
-          <p>
-            Securely connect to and administer Linux/BSD servers, both on-site and cloud, from
-            Windows 10 devices, such as a Surface Pro.
-          </p>
-        </EnterpriseFeaturChild>
-      </EnterpriseFeature>
-      <EnterpriseFeature
-        position="left"
-        renderIllistration={() => (
-          <WindowsAutomationIllistration width={mobile ? "300px" : "450px"} />
-        )}
-      >
-        <EnterpriseFeaturChild heading={"Automate Windows and Linux"}>
-          <p>
-            Automate routine Windows and Linux tasks with Bash, Python, PowerShell, and other
-            scripting languages, weaving tools from both platforms together.
-          </p>
-        </EnterpriseFeaturChild>
-      </EnterpriseFeature>
-      <br />
-      <EnterpriseFeature
-        position="right"
-        renderIllistration={() => <EnterpriseLinuxDistros maxImageWidth={"250px"} mobile={true} />}
-      >
-        <EnterpriseFeaturChild heading={"Use Existing Infrastructure"}>
-          <p>
-            Leverage your organization’s existing enterprise Linux subscriptions and infrastructure,
-            including Red Hat Satellite, Ansible, and Space Walk.
-          </p>
-        </EnterpriseFeaturChild>
-      </EnterpriseFeature>
-
-      <div
-        style={{ marginTop: "8em", display: "flex", justifyContent: "center" }}
-        className={"rfq-form"}
-      >
-        <ContactForm
-          onSubmit={formSubmitHandler}
-          containerId="request-quote-form"
-          headingText="Request a quote"
-          style={{ width: mobile ? "100%" : "80%" }}
-          ref={formRef}
+      <div style={{ backgroundColor: "#fdfcff", width: "100%", paddingTop: "0.2em" }}>
+        <h3
+          style={{ marginTop: "4em", marginBottom: "2em", textAlign: "center", color: "#929292" }}
+        >
+          Compatible Linux Distros
+        </h3>
+        <EnterpriseLinuxDistros
+          maxImageWidth={mobile ? "100px" : "200px"}
+          mobile={media === "mobile"}
         />
+        <EnterpriseFeature
+          position="left"
+          renderIllistration={() => (
+            <LinuxSoftwareIllistration width={mobile ? "300px" : "450px"} />
+          )}
+        >
+          <EnterpriseFeaturChild heading={"Unlock Linux Software on Windows"}>
+            <p>
+              Unlock powerful Linux software on Windows 10 and Windows 10 Server, including: Azure
+              and Amazon cloud tools, Apache, Docker, Git, Go, Node.js, OpenJDK, Ruby on Rails, and
+              Rust.
+            </p>
+          </EnterpriseFeaturChild>
+        </EnterpriseFeature>
+        <EnterpriseFeature
+          style={{ marginTop: "1em" }}
+          position="right"
+          renderIllistration={() => (
+            <WindowsPengwinlinuxIllistration width={mobile ? "300px" : "400px"} />
+          )}
+        >
+          <EnterpriseFeaturChild heading={"Administer Linux/BSD Servers from Windows"}>
+            <p>
+              Securely connect to and administer Linux/BSD servers, both on-site and cloud, from
+              Windows 10 devices, such as a Surface Pro.
+            </p>
+          </EnterpriseFeaturChild>
+        </EnterpriseFeature>
+        <EnterpriseFeature
+          position="left"
+          renderIllistration={() => (
+            <WindowsAutomationIllistration width={mobile ? "300px" : "450px"} />
+          )}
+        >
+          <EnterpriseFeaturChild heading={"Automate Windows and Linux"}>
+            <p>
+              Automate routine Windows and Linux tasks with Bash, Python, PowerShell, and other
+              scripting languages, weaving tools from both platforms together.
+            </p>
+          </EnterpriseFeaturChild>
+        </EnterpriseFeature>
+        <br />
+        <EnterpriseFeature
+          position="right"
+          renderIllistration={() => (
+            <EnterpriseLinuxDistros maxImageWidth={mobile ? "100px" : "200px"} mobile={true} />
+          )}
+        >
+          <EnterpriseFeaturChild heading={"Use Existing Infrastructure"}>
+            <p>
+              Leverage your organization’s existing enterprise Linux subscriptions and
+              infrastructure, including Red Hat Satellite, Ansible, and Space Walk.
+            </p>
+          </EnterpriseFeaturChild>
+        </EnterpriseFeature>
+
+        <div
+          style={{ marginTop: "8em", display: "flex", justifyContent: "center" }}
+          className={"rfq-form"}
+        >
+          <ContactForm
+            onSubmit={formSubmitHandler}
+            containerId="request-quote-form"
+            headingText="Request a quote"
+            style={{ width: mobile ? "100%" : "80%" }}
+            ref={formRef}
+          />
+        </div>
       </div>
     </>
   )
