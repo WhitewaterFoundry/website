@@ -62,6 +62,8 @@ const CTAHero: React.FC<EnterpriseCTAHeroProps> = ({
               style={{
                 color: "#9A54BB",
                 paddingTop: mobile ? "0" : "2.8em",
+                marginLeft: mobile ? ".5em" : "",
+                marginRight: mobile ? ".5em" : "",
                 maxWidth: mobile ? "480px" : "1200px",
                 transform: mobile ? "" : "translateX(-5%)",
               }}
