@@ -50,10 +50,7 @@ const CTAHero: React.FC<EnterpriseCTAHeroProps> = ({
   const mobile = media === "mobile" || media === "small" || media === "medium"
 
   return (
-    <PengwinCTA
-      fontSize={mobile ? "1.6em" : "2.1em"}
-      style={{ minWidth: mobile ? "" : "1100px", overflow: "hidden" }}
-    >
+    <PengwinCTA fontSize={mobile ? "1.6em" : "2.1em"} style={{ overflow: "hidden" }}>
       <BGContainer style={{ minHeight: mobile ? "600px" : "", backgroundColor: backgroundColor }}>
         <BGLogoContainer>{renderHero()}</BGLogoContainer>
       </BGContainer>
@@ -66,7 +63,7 @@ const CTAHero: React.FC<EnterpriseCTAHeroProps> = ({
                 color: "#9A54BB",
                 paddingTop: mobile ? "0" : "2.8em",
                 maxWidth: mobile ? "480px" : "1200px",
-                transform: "translateX(-5%)",
+                transform: mobile ? "" : "translateX(-5%)",
               }}
             >
               {renderText()}
